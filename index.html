@@ -4,11 +4,229 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculadora Financiera</title>
+  <title>Calculadora Financiera Online</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
+  <div class="calculator-container">
+    <div class="header">
+      <h1>Calculadora Financiera</h1>
+      <p>Herramientas profesionales para tus cálculos financieros</p>
+    </div>
 
+    <div class="calculator-tabs">
+      <button class="tab-button active" onclick="switchTab('loan')">Préstamos</button>
+      <button class="tab-button" onclick="switchTab('investment')">Inversiones</button>
+      <button class="tab-button" onclick="switchTab('mortgage')">Hipoteca</button>
+      <button class="tab-button" onclick="switchTab('savings')">Ahorros</button>
+    </div>
+
+    <!-- Calculadora de Préstamos -->
+    <div id="loan" class="tab-content active">
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label">
+            Monto del Préstamo
+            <span class="info-tooltip" data-tooltip="Cantidad total que deseas pedir prestada">?</span>
+          </label>
+          <div class="input-group">
+            <span class="input-prefix">$</span>
+            <input type="number" class="form-input input-with-prefix" id="loanAmount" placeholder="50000">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">
+            Tasa de Interés Anual (%)
+            <span class="info-tooltip" data-tooltip="Porcentaje de interés que te cobrará el banco">?</span>
+          </label>
+          <input type="number" class="form-input" id="loanRate" placeholder="5.5" step="0.1">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Plazo del Préstamo</label>
+          <select class="form-select" id="loanTerm">
+            <option value="12">1 año</option>
+            <option value="24">2 años</option>
+            <option value="36">3 años</option>
+            <option value="48">4 años</option>
+            <option value="60" selected>5 años</option>
+            <option value="120">10 años</option>
+            <option value="180">15 años</option>
+            <option value="240">20 años</option>
+          </select>
+        </div>
+      </div>
+      <button class="calculate-button" onclick="calculateLoan()">Calcular Préstamo</button>
+
+      <div class="result-container" id="loanResults" style="display: none;">
+        <div class="result-title">Resultados del Préstamo</div>
+        <div class="result-grid">
+          <div class="result-item">
+            <div class="result-label">Cuota Mensual</div>
+            <div class="result-value primary" id="monthlyPayment">$0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-label">Total a Pagar</div>
+            <div class="result-value" id="totalPayment">$0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-label">Total de Intereses</div>
+            <div class="result-value" id="totalInterest">$0</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Calculadora de Inversiones -->
+    <div id="investment" class="tab-content">
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label">Inversión Inicial</label>
+          <div class="input-group">
+            <span class="input-prefix">$</span>
+            <input type="number" class="form-input input-with-prefix" id="initialInvestment" placeholder="10000">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Aporte Mensual</label>
+          <div class="input-group">
+            <span class="input-prefix">$</span>
+            <input type="number" class="form-input input-with-prefix" id="monthlyContribution" placeholder="500">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Rendimiento Anual (%)</label>
+          <input type="number" class="form-input" id="investmentRate" placeholder="7" step="0.1">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Años de Inversión</label>
+          <input type="number" class="form-input" id="investmentYears" placeholder="10">
+        </div>
+      </div>
+      <button class="calculate-button" onclick="calculateInvestment()">Calcular Inversión</button>
+
+      <div class="result-container" id="investmentResults" style="display: none;">
+        <div class="result-title">Proyección de Inversión</div>
+        <div class="result-grid">
+          <div class="result-item">
+            <div class="result-label">Valor Final</div>
+            <div class="result-value primary" id="finalValue">$0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-label">Total Invertido</div>
+            <div class="result-value" id="totalInvested">$0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-label">Ganancias</div>
+            <div class="result-value" id="totalGains">$0</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Calculadora de Hipoteca -->
+    <div id="mortgage" class="tab-content">
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label">Precio de la Propiedad</label>
+          <div class="input-group">
+            <span class="input-prefix">$</span>
+            <input type="number" class="form-input input-with-prefix" id="homePrice" placeholder="300000">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Enganche (%)</label>
+          <input type="number" class="form-input" id="downPayment" placeholder="20">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Tasa de Interés (%)</label>
+          <input type="number" class="form-input" id="mortgageRate" placeholder="3.5" step="0.1">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Plazo (años)</label>
+          <select class="form-select" id="mortgageTerm">
+            <option value="15">15 años</option>
+            <option value="20">20 años</option>
+            <option value="25">25 años</option>
+            <option value="30" selected>30 años</option>
+          </select>
+        </div>
+      </div>
+      <button class="calculate-button" onclick="calculateMortgage()">Calcular Hipoteca</button>
+
+      <div class="result-container" id="mortgageResults" style="display: none;">
+        <div class="result-title">Detalles de la Hipoteca</div>
+        <div class="result-grid">
+          <div class="result-item">
+            <div class="result-label">Pago Mensual</div>
+            <div class="result-value primary" id="mortgagePayment">$0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-label">Monto del Enganche</div>
+            <div class="result-value" id="downPaymentAmount">$0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-label">Monto del Préstamo</div>
+            <div class="result-value" id="loanAmountMortgage">$0</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Calculadora de Ahorros -->
+    <div id="savings" class="tab-content">
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label">Depósito Inicial</label>
+          <div class="input-group">
+            <span class="input-prefix">$</span>
+            <input type="number" class="form-input input-with-prefix" id="initialDeposit" placeholder="5000">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Ahorro Mensual</label>
+          <div class="input-group">
+            <span class="input-prefix">$</span>
+            <input type="number" class="form-input input-with-prefix" id="monthlySaving" placeholder="200">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Tasa de Interés (%)</label>
+          <input type="number" class="form-input" id="savingsRate" placeholder="2.5" step="0.1">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Tiempo (años)</label>
+          <input type="number" class="form-input" id="savingsYears" placeholder="5">
+        </div>
+      </div>
+      <button class="calculate-button" onclick="calculateSavings()">Calcular Ahorros</button>
+
+      <div class="result-container" id="savingsResults" style="display: none;">
+        <div class="result-title">Proyección de Ahorros</div>
+        <div class="result-grid">
+          <div class="result-item">
+            <div class="result-label">Total Ahorrado</div>
+            <div class="result-value primary" id="totalSavings">$0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-label">Total Depositado</div>
+            <div class="result-value" id="totalDeposited">$0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-label">Intereses Ganados</div>
+            <div class="result-value" id="interestEarned">$0</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./main.js"></script>
 </body>
 
 </html>

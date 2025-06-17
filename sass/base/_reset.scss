@@ -3,3 +3,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body {
+  max-height: 100vh;
+  background-image: linear-gradient(to bottom, #667eea, #6e71d8, #7364c6, #7657b4, #764ba2);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}

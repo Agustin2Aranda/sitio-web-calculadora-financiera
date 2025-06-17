@@ -1,0 +1,42 @@
+.calculator-container {
+  padding: 1.25rem;
+  margin: 1.25rem;
+  border-radius: 1.25rem;
+  background-color: map-get($colors-greys, colors4);
+}
+
+.header {
+  @include flex (column, nowrap, center, center, none);
+
+  h1 {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  p {
+    padding-bottom: .625rem;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+.calculator-tabs {
+  @include flex (column, nowrap, center, center, .625rem);
+  background: map-get($colors-greys, colors4);
+
+  .tab-button {
+    flex: 1;
+    padding: 12px 20px;
+    border: none;
+    background: transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    color: map-get($colors-greys, colors1);
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+
+    &:hover {
+      background-image: linear-gradient(to bottom, #667eea, #6e71d8, #7364c6, #7657b4, #764ba2);
+      color: map-get($colors-basics, color1);
+    }
+  }
+}

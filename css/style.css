@@ -3,3 +3,62 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body {
+  max-height: 100vh;
+  background-image: linear-gradient(to bottom, #667eea, #6e71d8, #7364c6, #7657b4, #764ba2);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.calculator-container {
+  padding: 1.25rem;
+  margin: 1.25rem;
+  border-radius: 1.25rem;
+  background-color: #edf2f7;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: none;
+}
+.header h1 {
+  font-family: "Poppins", sans-serif;
+}
+.header p {
+  padding-bottom: 0.625rem;
+  font-family: "Inter", sans-serif;
+}
+
+.calculator-tabs {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  background: #edf2f7;
+}
+.calculator-tabs .tab-button {
+  flex: 1;
+  padding: 12px 20px;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #2d3748;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+.calculator-tabs .tab-button:hover {
+  background-image: linear-gradient(to bottom, #667eea, #6e71d8, #7364c6, #7657b4, #764ba2);
+  color: #ffffff;
+}
+
+/*# sourceMappingURL=style.css.map */
