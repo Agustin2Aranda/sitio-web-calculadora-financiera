@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -60,5 +61,7 @@ body {
   background-image: linear-gradient(to bottom, #667eea, #6e71d8, #7364c6, #7657b4, #764ba2);
   color: #ffffff;
 }
+
+/* Calculadora de Préstamos */
 
 /*# sourceMappingURL=style.css.map */
