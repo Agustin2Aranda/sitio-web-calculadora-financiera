@@ -63,5 +63,8 @@ body {
 }
 
 /* Calculadora de Préstamos */
+.form-label {
+  margin-bottom: 1.875rem;
+}
 
 /*# sourceMappingURL=style.css.map */

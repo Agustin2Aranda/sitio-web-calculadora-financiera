@@ -22,14 +22,14 @@
     </div>
 
     <div class="calculator-tabs">
-      <button class="tab-button active" onclick="switchTab('loan')">Préstamos</button>
-      <button class="tab-button" onclick="switchTab('investment')">Inversiones</button>
-      <button class="tab-button" onclick="switchTab('mortgage')">Hipoteca</button>
-      <button class="tab-button" onclick="switchTab('savings')">Ahorros</button>
+      <button class="tab-button active">Préstamos</button>
+      <button class="tab-button">Inversiones</button>
+      <button class="tab-button">Hipoteca</button>
+      <button class="tab-button">Ahorros</button>
     </div>
 
     <!-- Calculadora de Préstamos -->
-    <div id="loan" class="tab-content active">
+    <div id="loan" class="loan-content active">
       <div class="form-grid">
         <div class="form-group">
           <label class="form-label">
@@ -62,7 +62,7 @@
           </select>
         </div>
       </div>
-      <button class="calculate-button" onclick="calculateLoan()">Calcular Préstamo</button>
+      <button class="calculate-button">Calcular Préstamo</button>
 
       <div class="result-container" id="loanResults" style="display: none;">
         <div class="result-title">Resultados del Préstamo</div>
@@ -109,7 +109,7 @@
           <input type="number" class="form-input" id="investmentYears" placeholder="10">
         </div>
       </div>
-      <button class="calculate-button" onclick="calculateInvestment()">Calcular Inversión</button>
+      <button class="calculate-button">Calcular Inversión</button>
 
       <div class="result-container" id="investmentResults" style="display: none;">
         <div class="result-title">Proyección de Inversión</div>
@@ -158,7 +158,7 @@
           </select>
         </div>
       </div>
-      <button class="calculate-button" onclick="calculateMortgage()">Calcular Hipoteca</button>
+      <button class="calculate-button">Calcular Hipoteca</button>
 
       <div class="result-container" id="mortgageResults" style="display: none;">
         <div class="result-title">Detalles de la Hipoteca</div>
@@ -205,7 +205,7 @@
           <input type="number" class="form-input" id="savingsYears" placeholder="5">
         </div>
       </div>
-      <button class="calculate-button" onclick="calculateSavings()">Calcular Ahorros</button>
+      <button class="calculate-button">Calcular Ahorros</button>
 
       <div class="result-container" id="savingsResults" style="display: none;">
         <div class="result-title">Proyección de Ahorros</div>
