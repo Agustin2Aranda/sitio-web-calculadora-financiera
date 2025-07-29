@@ -22,10 +22,10 @@
     </div>
 
     <div class="calculator-tabs">
-      <button class="tab-button active">Préstamos</button>
-      <button class="tab-button">Inversiones</button>
-      <button class="tab-button">Hipoteca</button>
-      <button class="tab-button">Ahorros</button>
+      <button class="tab-button active" id="btnPrestamo">Préstamos</button>
+      <button class="tab-button" id="btnInversion">Inversiones</button>
+      <button class="tab-button" id="btnHipoteca">Hipoteca</button>
+      <button class="tab-button" id="btnAhorro">Ahorros</button>
     </div>
 
     <!-- Calculadora de Préstamos -->
@@ -50,7 +50,7 @@
         </div>
         <div class="form-group">
           <label class="form-label">Plazo del Préstamo</label>
-          <select class="form-select" id="loanTerm">
+          <select class="form-select" id="loanYears">
             <option value="12">1 año</option>
             <option value="24">2 años</option>
             <option value="36">3 años</option>
@@ -62,9 +62,9 @@
           </select>
         </div>
       </div>
-      <button class="calculate-button">Calcular Préstamo</button>
+      <button class="calculate-button" id="btnLoanCalc">Calcular Préstamo</button>
 
-      <div class="result-container" id="loanResults" style="display: none;">
+      <div class="result-container hidden" id="loanResults">
         <div class="result-title">Resultados del Préstamo</div>
         <div class="result-grid">
           <div class="result-item">
@@ -109,9 +109,9 @@
           <input type="number" class="form-input" id="investmentYears" placeholder="10">
         </div>
       </div>
-      <button class="calculate-button">Calcular Inversión</button>
+      <button class="calculate-button" id="btnInvCalc">Calcular Inversión</button>
 
-      <div class="result-container" id="investmentResults" style="display: none;">
+      <div class="result-container hidden" id="investmentResults">
         <div class="result-title">Proyección de Inversión</div>
         <div class="result-grid">
           <div class="result-item">
@@ -150,7 +150,7 @@
         </div>
         <div class="form-group">
           <label class="form-label">Plazo (años)</label>
-          <select class="form-select" id="mortgageTerm">
+          <select class="form-select" id="mortgageYears">
             <option value="15">15 años</option>
             <option value="20">20 años</option>
             <option value="25">25 años</option>
@@ -158,9 +158,9 @@
           </select>
         </div>
       </div>
-      <button class="calculate-button">Calcular Hipoteca</button>
+      <button class="calculate-button" id="btnHipCalc">Calcular Hipoteca</button>
 
-      <div class="result-container" id="mortgageResults" style="display: none;">
+      <div class="result-container hidden" id="mortgageResults">
         <div class="result-title">Detalles de la Hipoteca</div>
         <div class="result-grid">
           <div class="result-item">
@@ -205,9 +205,9 @@
           <input type="number" class="form-input" id="savingsYears" placeholder="5">
         </div>
       </div>
-      <button class="calculate-button">Calcular Ahorros</button>
+      <button class="calculate-button" id="btnAhoCalc">Calcular Ahorros</button>
 
-      <div class="result-container" id="savingsResults" style="display: none;">
+      <div class="result-container hidden" id="savingsResults">
         <div class="result-title">Proyección de Ahorros</div>
         <div class="result-grid">
           <div class="result-item">
